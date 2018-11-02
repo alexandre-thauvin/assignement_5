@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">gym3000X</string>
+
+    <string name="text_clubs">FOOTBALL NEWS \n
+The focus of Mbappé would be changed by computer \n
+VOLLEY NEWS \n
+The volley ball would be made with sweaty vegan sheep\'s stomach \n
+BIKE NEWS \n
+Christopher vroom reportedly used charcoal to increase the density of his buttocks \n</string>
+    <string name="text_event">Football match on the 11/10\nVolley Tournament on the 21/10\nHockey discount until the 10/09</string>
+
+    <string name="courses">courses</string>
+    <string name="trainers">trainers</string>
+    <string name="dashboard">dasboard</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
