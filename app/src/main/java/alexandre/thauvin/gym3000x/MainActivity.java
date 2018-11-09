@@ -1,14 +1,23 @@
 package alexandre.thauvin.gym3000x;
 
-import android.support.v4.app.FragmentManager;
+import android.content.Context;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  TrainersFragment.OnListFragmentInteractionListener,  CoursesFragment.OnListFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         bottomNavigation.setForceTint(true);
         bottomNavigation.setCurrentItem(0);
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, new HomeFragment()).commit();
+
 
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
@@ -48,4 +59,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onListFragmentInteraction(Trainer item) {
+
+    }
+
+    public void onListFragmentInteraction(Course item) {
+
+    }
+
+    public void onFragmentInteraction(Uri uri) {
+    }
+
 }
