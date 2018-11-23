@@ -13,6 +13,12 @@ Christopher vroom reportedly used charcoal to increase the density of his buttoc
     <string name="trainers">trainers</string>
     <string name="dashboard">dasboard</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password">password</string>
+    <string name="email">email</string>
+    <string name="agreecreate">Agree &amp; Create Account</string>
+    <string name="acceptcgu">By clicking the button below, I agree to be found by Pictalio\'s User Agreement and Privacy Policy</string>
+    <string name="forgot">Forgot your password ?</string>
+    <string name="signup">Is That your first time here ? Sign up</string>
+
+
 </resources>
