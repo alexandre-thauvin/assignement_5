@@ -40,6 +40,7 @@ public class UploadFragment extends Fragment implements View.OnClickListener{
     private ImageView           thumbnail;
     ImageView           downloadFile;
     Uri                         fileURI;
+    String              fileName;
 
 
     public UploadFragment() {
@@ -146,7 +147,8 @@ public class UploadFragment extends Fragment implements View.OnClickListener{
 
         file = uri;
 
-        destinationRef = mStorageRef.child(uri.getPath().substring(uri.getPath().lastIndexOf("/")+1) + ".pdf");
+        fileName = uri.getPath().substring(uri.getPath().lastIndexOf("/")+1) + ".pdf";
+        destinationRef = mStorageRef.child(fileName);
         destinationRef.putFile(file)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -167,7 +169,7 @@ public class UploadFragment extends Fragment implements View.OnClickListener{
 
     private void downloadFile(){
 
-        StorageReference islandRef = mStorageRef.child("fallcalendar.pdf");
+        StorageReference islandRef = mStorageRef.child(fileName);
 
 //        try{
 //            final File localFile = File.createTempFile("download", "pdf");
@@ -205,13 +207,13 @@ public class UploadFragment extends Fragment implements View.OnClickListener{
              Toast.makeText(activity, "Download finished", Snackbar.LENGTH_LONG).show();
              try {
 
-                 BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "titi.pdf")));
+                 BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName)));
                  try {
                      bos.write(bytes);
                      bos.flush();
                      bos.close();
 
-                     final Uri data = FileProvider.getUriForFile(activity, BuildConfig.APPLICATION_ID + ".fileprovider", new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + " titi.pdf"));
+                     final Uri data = FileProvider.getUriForFile(activity, BuildConfig.APPLICATION_ID + ".fileprovider", new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + " " + fileName));
                     activity.grantUriPermission(activity.getPackageName(), data, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                      String mimetype = "application/pdf";
                      Intent myIntent = new Intent(Intent.ACTION_VIEW);
@@ -228,7 +230,6 @@ public class UploadFragment extends Fragment implements View.OnClickListener{
                  Log.d("File", "onSuccess: "+ e.getMessage());
              }
 
-                // Data for "images/island.jpg" is returns, use this as needed
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
