@@ -24,8 +24,8 @@ public class TrainersFragment extends Fragment {
     }
 
     @SuppressWarnings("unused")
-    public static CoursesFragment newInstance() {
-        CoursesFragment fragment = new CoursesFragment();
+    public static TrainersFragment newInstance() {
+        TrainersFragment fragment = new TrainersFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
