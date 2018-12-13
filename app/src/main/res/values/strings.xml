@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">gym3000X</string>
+    <string name="app_name">assigment_5</string>
 
     <string name="text_clubs">FOOTBALL NEWS \n
 The focus of Mbappé would be changed by computer \n
@@ -20,6 +20,10 @@ Christopher vroom reportedly used charcoal to increase the density of his buttoc
     <string name="acceptcgu">By clicking the button below, I agree to be found by Pictalio\'s User Agreement and Privacy Policy</string>
     <string name="forgot">Forgot your password ?</string>
     <string name="signup">Is That your first time here ? Sign up</string>
+
+    <!-- Facebook -->
+    <string name="facebook_app_id">748676502159819</string>
+    <string name="fb_login_protocol_scheme">fb748676502159819</string>
 
 
 </resources>

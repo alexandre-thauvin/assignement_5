@@ -1,4 +1,4 @@
-package alexandre.thauvin.gym3000x;
+package alexandre.thauvin.assignment5;
 
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;

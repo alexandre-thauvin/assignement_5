@@ -1,4 +1,4 @@
-package alexandre.thauvin.gym3000x;
+package alexandre.thauvin.assignment5;
 
 import java.util.regex.Pattern;
 

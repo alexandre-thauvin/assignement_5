@@ -1,4 +1,4 @@
-package alexandre.thauvin.gym3000x;
+package alexandre.thauvin.assignment5;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,19 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.Task;
+
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener, SignInRequest.sendDataResponse {
     int value = 0;
+
+    CallbackManager callbackManager = CallbackManager.Factory.create();
 
 
     @Override
@@ -21,11 +32,38 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.login).setOnClickListener(this);
         findViewById(R.id.forgot).setOnClickListener(this);
         findViewById(R.id.signup).setOnClickListener(this);
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        Toast toast = Toast.makeText(SignInActivity.this, "facebook logged", Toast.LENGTH_SHORT);
+                        toast.show();
+
+                        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                    }
+                });
     }
 
     @Override
     public void onStart() {
         super.onStart();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
